@@ -1,15 +1,28 @@
 public class Main {
     public static void main(String[] args) {
-        MyCollection<String> myCollection = new MyArrayList<>();
+        MyCollection<String> myArrayList = new MyArrayList<>();
 
         for (int i = 1; i <= 6; i++) {
-            myCollection.add("i = " + i);
-            myCollection.add("a = " + i);
+            myArrayList.add("i = " + i);
+            myArrayList.add("a = " + i);
         }
-        myCollection.sort();
-        myCollection.delete(5);
-        for(int i = 0; i < myCollection.getSize(); i++) {
-            System.out.print(myCollection.get(i) + ", ");
+        myArrayList.sort();
+        myArrayList.delete(5);
+        for(int i = 0; i < myArrayList.getSize(); i++) {
+            System.out.print(myArrayList.get(i) + ", ");
+        }
+        System.out.println();
+
+        MyCollection<String> myLinkedList = new MyLinkedList<>();
+        for (int i = 1; i <= 6; i++) {
+            myLinkedList.add("x = " + i);
+            myLinkedList.add("b = " + i);
+        }
+
+        myLinkedList.deleteAll();
+        myLinkedList.sort();
+        for(int i = 0; i < myLinkedList.getSize(); i++) {
+            System.out.print(myLinkedList.get(i) + ", ");
         }
     }
 }

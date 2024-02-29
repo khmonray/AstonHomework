@@ -1,7 +1,7 @@
 /*Реализовать свой ArrayList и LinkedList (не потокобезопасный
 Методы – добавить элемент, добавить элемент по индексу, получить элемент,
 удалить элемент, очистить всю коллекцию, отсортировать, остальное по желанию. Реализация с java.util не принимаются!*/
-public class MyArrayList<T> implements MyCollection {
+public class MyArrayList<T> implements MyCollection<T> {
     private Object[] innerArray;
     private int size;
 
@@ -19,13 +19,13 @@ public class MyArrayList<T> implements MyCollection {
     }
 
     @Override
-    public void add(Object element) {
+    public void add(T element) {
         checkOrResize();
         innerArray[size++] = element;
     }
 
     @Override
-    public void add(int index, Object element) {
+    public void add(int index, T element) {
         checkOrResize();
         if(index >= 0 && index < size) {
             System.arraycopy(innerArray, index, innerArray, index + 1, size - index);
@@ -36,7 +36,7 @@ public class MyArrayList<T> implements MyCollection {
     }
 
     @Override
-    public Object get(int index) {
+    public T get(int index) {
         if(index >= 0 && index < size) {
             return (T) innerArray[index];
         }
